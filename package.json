@@ -1,0 +1,36 @@
+{
+  "name": "Buildcorner.com",
+  "version": "1.0.0",
+  "description": "Node web app to serve Angular.js frontend Application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node_modules/.bin/mocha tests/**"
+  },
+  "keywords": [
+    "Tiles",
+    "Marbles",
+    "Wood",
+    "Shop",
+    "Online"
+  ],
+  "author": "Ankit Silaich",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.12.3",
+    "express": "^4.12.3",
+    "jade": "^1.9.2",
+    "errorhandler": "1.4.2",
+    "method-override": "^1.0.0",
+    "morgan": "^1.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "latest",
+    "gulp": "^3.8.7",
+    "chai" : "3.2.0",
+    "mocha": "^2.2.5",
+    "should": "^6.0.1",
+    "gulp-nodemon": "~2.0.2",
+    "gulp-uglify": "^1.0.2"
+  }
+}
