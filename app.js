@@ -11,7 +11,8 @@ var express = require('express'),
   // routes = require('./routes'),
   // api = require('./routes/api'),
   http = require('http'),
-  path = require('path');
+  path = require('path'),
+  config = require('./config');
 
 var app = module.exports = express();
 
@@ -35,6 +36,7 @@ app.use(methodOverride('X-HTTP-Method-Override'))
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./controllers'));
+app.use(require(_dir.MIDDLEWARE_DIR+'/browser_support'));
 var env = process.env.NODE_ENV || 'development';
 
 // development only
