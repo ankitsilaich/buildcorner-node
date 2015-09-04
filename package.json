@@ -31,6 +31,12 @@
     "mocha": "^2.2.5",
     "should": "^6.0.1",
     "gulp-nodemon": "~2.0.2",
-    "gulp-uglify": "^1.0.2"
+    "gulp-uglify": "^1.0.2",
+    "gulp-coffee": "*",
+    "gulp-util":"*",
+    "gulp-less" : "*",
+    "gulp-minify-css":"*",
+    "del" : "*",
+    "gulp-ignore" : "*"
   }
 }
