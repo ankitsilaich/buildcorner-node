@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
-var browserSync2 =  require('browser-sync');
 var nodemon = require('gulp-nodemon');
 var uglify = require('gulp-uglify');
 var coffee = require('gulp-coffee');
@@ -8,7 +7,6 @@ var gutil = require('gulp-util');
 var less = require('gulp-less');
 var path = require('path');
 var minifyCss = require('gulp-minify-css');
-var rimraf = require('gulp-rimraf'); // rimraf directly
 var del = require('del');
 
 
@@ -20,7 +18,7 @@ gulp.task('js-watch', browserSync.reload);
 
 
 gulp.task('watch', function () {
-	gulp.watch('public/**/*.js', ['js-watch'])
+	gulp.watch('public/**/*.js', ['js-watch']);
 
 
 	browserSync.init({
@@ -41,7 +39,7 @@ gulp.task('watch', function () {
 gulp.task('coffee', function() {
   gulp.src('./assets/javascripts/**/*.coffee')
     .pipe(coffee({bare: true}).on('error', gutil.log))
-    .pipe(gulp.dest('./public/javascripts/'))
+    .pipe(gulp.dest('./public/javascripts/'));
 });
 //fonts copy
 gulp.task('copyfonts', function() {
@@ -69,9 +67,9 @@ gulp.task('server', function() {
     nodeArgs: ['--debug']
   }).on('restart', function() {
     setTimeout(function() {
-      reload();
+      //  reload();
     }, 2500);
-  })
+  });
 });
 //clean task
 gulp.task('clean', function () {
