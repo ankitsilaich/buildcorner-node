@@ -8,19 +8,23 @@ var path = require('path');
 var minifyCss = require('gulp-minify-css');
 var del = require('del');
 var sass = require('gulp-sass');
-// var hash = require('gulp-hash');
+var rev = require('gulp-rev');
 
+var paths = {
+  scripts: ['./assets/javascripts/**/*.coffee'],
+  images: 'client/img/**/*'
+};
 
 
 // process JS files and return the stream.
 
 // create a task that ensures the `js` task is complete before
 // reloading browsers
-gulp.task('js-watch', browserSync.reload);
+gulp.task('coffee-watch', browserSync.reload);
 
 
 gulp.task('watch', function () {
-	gulp.watch('public/**/*.js', ['js-watch']);
+	gulp.watch(paths.scripts, ['coffee']);
 
 
 	browserSync.init({
@@ -31,15 +35,13 @@ gulp.task('watch', function () {
 	});
 
   // watch for changes in compiled files
-	gulp.watch([
-	'public/**/*.js'
-	]).on('change', browserSync.reload);
+	gulp.watch(paths.scripts).on('change', browserSync.reload);
 
 
 });
 //coffee compilation
 gulp.task('coffee', function() {
-  gulp.src('./assets/javascripts/**/*.coffee')
+  gulp.src(paths.scripts)
     .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(gulp.dest('./public/javascripts/'));
 });
@@ -72,11 +74,12 @@ gulp.task('minify-css', function() {
 
 // this task will create hashes for each js file so to remove cache in browsers 
 gulp.task('hash-js', function () {
-	gulp.src('./assets/javascripts/**/*.js')
-    .pipe(hash()) // Add hashes to the files' names 
-    .pipe(gulp.dest('public/js')) // Write the renamed files 
-    .pipe(hash.manifest('assets.json')) // Switch to the manifest file 
-    .pipe(gulp.dest('public')); // Write the manifest file 
+	return gulp.src(['./public/javascripts/**/*.js'], {base: 'assets'})
+        .pipe(gulp.dest('./public/javascripts/'))  // copy original assets to build dir
+        .pipe(rev())
+        .pipe(gulp.dest('./public/javascripts/'))  // write rev'd assets to build dir
+        .pipe(rev.manifest())
+        .pipe(gulp.dest('./public/javascripts/')); // write manifest to build dir
 });
 gulp.task('server', function() {
   nodemon({
@@ -108,5 +111,5 @@ gulp.task('dev', function() {
 });
 
 gulp.task('default', function() {
-  gulp.start('js-watch', 'server','watch');
+  gulp.start( 'server','watch');
 });

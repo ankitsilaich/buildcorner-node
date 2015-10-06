@@ -38,6 +38,6 @@
     "gulp-minify-css": "*",
     "del": "*",
     "gulp-ignore": "*",
-    "gulp-hash": "*"
+    "gulp-rev" : "*"
   }
 }
