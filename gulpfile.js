@@ -4,7 +4,6 @@ var nodemon = require('gulp-nodemon');
 var uglify = require('gulp-uglify');
 var coffee = require('gulp-coffee');
 var gutil = require('gulp-util');
-var path = require('path');
 var minifyCss = require('gulp-minify-css');
 var del = require('del');
 var sass = require('gulp-sass');
