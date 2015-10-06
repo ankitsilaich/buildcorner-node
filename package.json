@@ -27,16 +27,17 @@
   "devDependencies": {
     "browser-sync": "latest",
     "gulp": "^3.8.7",
-    "chai" : "3.2.0",
+    "chai": "3.2.0",
     "mocha": "^2.2.5",
     "should": "^6.0.1",
     "gulp-nodemon": "~2.0.2",
     "gulp-uglify": "^1.0.2",
     "gulp-coffee": "*",
-    "gulp-util":"*",
-    "gulp-less" : "*",
-    "gulp-minify-css":"*",
-    "del" : "*",
-    "gulp-ignore" : "*"
+    "gulp-util": "*",
+    "gulp-sass": "*",
+    "gulp-minify-css": "*",
+    "del": "*",
+    "gulp-ignore": "*",
+    "gulp-hash": "*"
   }
 }

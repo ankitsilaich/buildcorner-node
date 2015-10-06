@@ -4,10 +4,12 @@ var nodemon = require('gulp-nodemon');
 var uglify = require('gulp-uglify');
 var coffee = require('gulp-coffee');
 var gutil = require('gulp-util');
-var less = require('gulp-less');
 var path = require('path');
 var minifyCss = require('gulp-minify-css');
 var del = require('del');
+var sass = require('gulp-sass');
+// var hash = require('gulp-hash');
+
 
 
 // process JS files and return the stream.
@@ -41,24 +43,40 @@ gulp.task('coffee', function() {
     .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(gulp.dest('./public/javascripts/'));
 });
+gulp.task('js-move', function() {
+  gulp.src('./assets/javascripts/**/*.js')
+    // .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(gulp.dest('./public/javascripts/'));
+});
 //fonts copy
 gulp.task('copyfonts', function() {
    gulp.src('./assets/fonts/**/*.{ttf,woff,eof,svg}')
    .pipe(gulp.dest('./public/fonts'));
 });
-//less compilation
-gulp.task('less', function () {
-  return gulp.src('./assets/stylesheets/*.less')
-    .pipe(less({
-      paths: [ path.join(__dirname, 'less', 'fontawesome') ]
-    }))
+//sass compilation
+gulp.task('sass', function () {
+  gulp.src('./assets/stylesheets/pages/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./public/stylesheets/'));
+});
+//sass watch
+gulp.task('sass:watch', function () {
+  gulp.watch('./sass/**/*.scss', ['sass']);
 });
 //minify CSS
 gulp.task('minify-css', function() {
   return gulp.src('./public/stylesheets/*.css')
     .pipe(minifyCss({compatibility: 'ie8'}))
     .pipe(gulp.dest('./public/stylesheets/'));
+});
+
+// this task will create hashes for each js file so to remove cache in browsers 
+gulp.task('hash-js', function () {
+	gulp.src('./assets/javascripts/**/*.js')
+    .pipe(hash()) // Add hashes to the files' names 
+    .pipe(gulp.dest('public/js')) // Write the renamed files 
+    .pipe(hash.manifest('assets.json')) // Switch to the manifest file 
+    .pipe(gulp.dest('public')); // Write the manifest file 
 });
 gulp.task('server', function() {
   nodemon({
@@ -82,11 +100,11 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('./public/javascripts/'));
 });
 gulp.task('prod', function() {
-  gulp.start('less', 'coffee','copyfonts','minify-css');
+  gulp.start( 'coffee','copyfonts','minify-css');
 });
 
 gulp.task('dev', function() {
-  gulp.start('clean','less', 'coffee','copyfonts');
+  gulp.start('clean','js-move', 'coffee','copyfonts');
 });
 
 gulp.task('default', function() {

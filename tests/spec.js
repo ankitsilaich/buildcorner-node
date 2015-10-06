@@ -1,4 +1,4 @@
-global._dir = require('../config/directories');
+global._dir = require('../server/config/directories');
 //global.LogError = require('../server/helpers/error_logger');
 
 module.exports = {};
