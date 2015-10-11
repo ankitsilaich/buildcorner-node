@@ -7,6 +7,7 @@ var express = require('express'),
   methodOverride = require('method-override'),
   errorHandler = require('errorhandler'),
   morgan = require('morgan'),
+  compression = require('compression'),
   // routes = require('./routes'),
   // api = require('./routes/api'),
   http = require('http'),
@@ -26,6 +27,7 @@ app.set('views', _dir.VIEWS_PATH); // views folder declaration path will be root
 app.set('view engine', 'jade');
 
 app.use(morgan('dev'));
+app.use(compression());
 app.use(bodyParser.urlencoded({
   extended: false
 }))

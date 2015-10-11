@@ -1,0 +1,53 @@
+doctype html
+html
+  head
+    title Buildcorner
+    link(rel='stylesheet', href='/stylesheets/components/header.css')
+    link(rel='stylesheet', href='/stylesheets/components/footer.css')
+    
+  body     
+    div.miniheader-top 
+        div.wrapper
+            div.exclusive get exclusive tile collection here
+            div.login
+                span.sell sell on buildcorner
+                | login / register     
+    header.logo-header
+        div.header-wrapper
+            div.search-box  search box
+            div.buildcorner-logo
+                img(data-echo= "images/logo.jpg",alt="car loader icon",class="logo")
+            div.shopping-cart     
+                div.cart
+    div#main-nav.main-navigation  
+        p.temp this is our main navigation
+    div.slider-container
+        div#slider.swipe
+            div.swipe-wrap
+                div.slider-image
+                    img(data-echo= "images/livingroom2.jpg",alt="livingroom image")
+                div.slider-image
+                    img(data-echo= "images/Living-Room.jpg",alt="livingroom image")
+        button.prev(onclick="slider.prev()")
+            span.icon-prev
+        button.next(onclick="slider.next()")
+            span.icon-next
+    div.info-container 
+    include footer.jade       
+    script.
+        function addEvent(object, type, func) {
+            if (object.attachEvent) {
+                object['e'+type +func] = func;
+                object[type +func] = function() {
+                    object['e'+type + func](window.event);
+                }
+                object.attachEvent('on' + type, object[type + func]);
+            } else {
+                object.addEventListener(type, func, false);
+            }
+        }  
+        addEvent(window,'load',function(event){
+        var element = document.createElement("script");
+        element.src = "javascripts/swipe.js";
+        document.body.appendChild(element);
+        });             

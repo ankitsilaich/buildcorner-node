@@ -1,0 +1,72 @@
+// CSS for landing page website footer-color
+.home-footer {
+    background-color: #333;
+    color: #fff;
+    height: 400px;
+    .footer-wrapper {
+        width: 1140px;
+        margin: 0 auto;
+        padding-top: 40px;
+    }
+}
+.footer-header {
+    font-size: 15px;
+    padding-bottom: 20px;
+    color: #eee;
+    text-transform: uppercase;
+    border-bottom: 1px solid #4e5054;
+}
+.footer-nav {
+    margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
+    .list-item {
+        padding: 7px 0;
+        a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            &:hover {
+                color: #abc8e2;
+            }
+        }
+    }
+    .address-line {
+        padding: 7px 0;
+        color: #aaa;
+    }
+}
+.copyright {
+    width: 100%;
+    color: white;
+    font-size: 12px;
+}
+.subscribe {
+    border: 1px solid!important;
+    border-radius: 5px!important;
+    border-color: #fff!important;
+    color: #fff;
+    margin-top: 15px;
+    &:hover {
+        background-color: #fff;
+        color: #fff;
+        border-color: #fff;
+    }
+    span {
+        margin-right: 5px;
+    }
+}
+.input {
+    display: block;
+    width: 100%;
+    height: 37px;
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 16px;
+    color: #333;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+    -webkit-appearance: none;
+}

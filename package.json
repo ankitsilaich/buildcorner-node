@@ -22,7 +22,8 @@
     "jade": "^1.9.2",
     "errorhandler": "1.4.2",
     "method-override": "^1.0.0",
-    "morgan": "^1.0.0"
+    "morgan": "^1.0.0",
+    "compression": "^1.4.1"
   },
   "devDependencies": {
     "browser-sync": "latest",
@@ -38,6 +39,7 @@
     "gulp-minify-css": "*",
     "del": "*",
     "gulp-ignore": "*",
-    "gulp-rev" : "*"
+    "gulp-rev" : "*",
+    "gulp-webp" : "*"
   }
 }
