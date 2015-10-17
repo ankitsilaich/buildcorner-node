@@ -8,7 +8,7 @@ var minifyCss = require('gulp-minify-css');
 var del = require('del');
 var sass = require('gulp-sass');
 var rev = require('gulp-rev');
-var webp = require('gulp-webp');
+// var webp = require('gulp-webp');
 
 var paths = {
   scripts: ['./assets/javascripts/**/*.coffee'],
@@ -81,7 +81,7 @@ gulp.task('minify-css', function() {
     .pipe(gulp.dest('./public/stylesheets/'));
 });
 
-// this task will create hashes for each js file so to remove cache in browsers 
+// this task will create hashes for each js file so to remove cache in browsers
 gulp.task('hash-js', function () {
 	return gulp.src(['./public/javascripts/**/*.js'], {base: 'assets'})
         .pipe(gulp.dest('./public/javascripts/'))  // copy original assets to build dir
@@ -114,11 +114,11 @@ gulp.task('compress', function() {
 gulp.task('prod', function() {
   gulp.start( 'coffee','copyfonts','minify-css');
 });
-gulp.task('webp-conversion', function () {
-    return gulp.src('./assets/images/images 3/**/*.jpg')
-        .pipe(webp())
-        .pipe(gulp.dest('./temp'));
-});
+// gulp.task('webp-conversion', function () {
+//     return gulp.src('./assets/images/images 3/**/*.jpg')
+//         .pipe(webp())
+//         .pipe(gulp.dest('./temp'));
+// });
 
 gulp.task('dev', function() {
   gulp.start('clean','js-move', 'coffee','copyfonts','sass','copyimages');

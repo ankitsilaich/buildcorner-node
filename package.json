@@ -39,7 +39,6 @@
     "gulp-minify-css": "*",
     "del": "*",
     "gulp-ignore": "*",
-    "gulp-rev" : "*",
-    "gulp-webp" : "*"
+    "gulp-rev" : "*" 
   }
 }
