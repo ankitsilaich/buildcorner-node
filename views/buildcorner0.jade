@@ -2,19 +2,355 @@ doctype html
 html
   head
     title Buildcorner
+    link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/components/header.css')
-    link(rel='stylesheet',href='http://fonts.googleapis.com/css?family=Montserrat:400,700')
+    link(rel='stylesheet', href='/stylesheets/components/footer.css')
+
   body
-    header.header
-        div.miniheader-top 
-            div.container
-                div.row
-                    div.col-md-6
-                        div.header_top_left
-                            img(src= "/images/car.png",alt="car loader icon")
-                            p 
-                                | Get Exclusive Tile Collection 
-                    div.col-md-6                          
-                        div.header_top_right
-                            p 
-                                | Right side content
+    div.miniheader-top
+      div.wrapper
+          div.exclusive get exclusive tile collection here
+          div.login
+              span.sell sell on buildcorner
+              | login / register
+    header.main-header
+      div.wrapper
+        div.buildcorner-logo
+            p Buildcorner
+        div#main-nav.main-navigation
+          ul.navbar-main
+            li.active.navbar-item
+              a(href='#')
+                | home
+            li.navbar-item.walltile-nav
+              a(href='#')
+                | wall tiles
+            li.navbar-item.floortile-nav
+              a(href='#')
+                | floor tiles
+            li.navbar-item
+              a(href='#')
+                | concepts
+            li.navbar-item
+              a(href='#')
+                | blog
+            li.navbar-item
+              a(href='#')
+                | faq
+            li.navbar-item
+              a(href='#')
+                | contact us
+            div.category-menu.walltile-menu
+              div.left-submenu
+                h5
+                  | Find by finish
+
+                ul.submenu-nav
+                  li
+                    a(href="")
+                      | Rustic
+                  li
+                    a(href="")
+                      | Stone
+                  li
+                    a(href="")
+                      | Wood
+                  li
+                    a(href="")
+                      | Matt
+                  li
+                    a(href="").all-prod
+                      | View All
+              div.center-submenu
+                h5
+                  | Find by brand
+
+                ul.submenu-nav
+                  li
+                    a(href="")
+                      | Johnson
+                  li
+                    a(href="")
+                      | Somany
+                  li
+                    a(href="")
+                      | Kajaria
+                  li
+                    a(href="")
+                      | Orient Bell
+                  li
+                    a(href="").all-prod
+                      | View All
+              div.right-submenu
+                h5
+                  | Find by size
+
+                ul.submenu-nav
+                  li
+                    a(href="")
+                      | 12*24 in
+                  li
+                    a(href="")
+                      | 12*18 in
+                  li
+                    a(href="")
+                      | 10*15 in
+                  li
+                    a(href="")
+                      | 10*13 in
+                  li
+                    a(href="").all-prod
+                      | View All
+              div.img-submenu
+                img(src="images/johnson_nav.jpg")
+            div.category-menu.floortile-menu
+              div.left-submenu
+                h5
+                  | Find by brand
+                ul.submenu-nav
+                  li
+                    a(href="")
+                      | Johnson
+                  li
+                    a(href="")
+                      | Somany
+                  li
+                    a(href="")
+                      | Kajaria
+                  li
+                    a(href="")
+                      | Orient Bell
+                  li
+                    a(href="").all-prod
+                      | View All
+              div.center-submenu
+                h5
+                  | Find by material
+
+                ul.submenu-nav
+                  li
+                    a(href="")
+                      | Virtrified tile
+                  li
+                    a(href="")
+                      | Glazed tile
+                  li
+                    a(href="")
+                      | Ceramic tile
+                  li
+                    a(href="")
+                      | Mosaic tile
+                  li
+                    a(href="").all-prod
+                      | View All
+
+              div.right-submenu
+                h5
+                  | Find by size
+
+                ul.submenu-nav
+                  li
+                    a(href="")
+                      | 24*24 in
+                  li
+                    a(href="")
+                      | 32*32 in
+                  li
+                    a(href="")
+                      | 24*48 in
+                  li
+                    a(href="")
+                      | 12*12 in
+                  li
+                    a(href="").all-prod
+                      | View All
+              div.img-submenu
+                img(src="images/kajaria_nav.jpg")
+
+          div.shopping-cart
+            p
+              | shopping cart
+
+    div.slider-container
+        div#slider.swipe
+            div.swipe-wrap
+                div.slider-image
+                    img(src= "images/livingroom2.jpg",alt="living room1")
+                div.slider-image
+                    img(data-echo= "images/Living-Room.jpg",alt="living room2")
+        button.prev(onclick="slider.prev()")
+            span.icon-prev
+              | <
+        button.next(onclick="slider.next()")
+            span.icon-next
+              | >
+    div.info-container
+      div.wrapper
+        div.column-3
+          img(src='images/phone.png')
+          p
+            b
+              | contact us
+          p
+            |  +91-964-392-1524.
+        div.column-3
+          img(src='images/world.png')
+          p
+            b
+              | find concepts for your
+          p
+            |  favourite product.
+        div.column-3
+          img(src='images/discount.png')
+          p
+            b
+              | best prices in market
+          p
+            |  lowest in market.
+        div.column-3
+          img(src='images/return.png')
+          p
+            b
+              | free sample delivery
+          p
+            |  upto 5 free samples.
+
+    div.box-area
+      div.wrapper
+        h3.box-header
+          | find tile By usages
+        div.row
+          div.widget1
+            img(data-echo= "images/floortile.jpg",alt="")
+            div.promo_content
+              a(href='#')
+                span
+                  | Floor Tiles
+            div.promo_address
+              | Explore Exclusive Collection
+
+          div.widget2
+            img(data-echo= "images/walltile.jpg",alt="")
+            div.promo_content
+              a(href='#')
+                span
+                  | Wall Tiles
+            div.promo_address
+              | Explore Exclusive Collection
+
+    div.box-area
+      div.wrapper
+        h3.box-header
+          | roomwise products
+        div.row1
+          div.widget1
+            img(data-echo= "images/kitchennew.jpg",alt="")
+            div.promo_content
+              a(href='#')
+                span
+                  | Kitchen
+            div.promo_address
+              | Explore Exclusive Collection
+          div.row2
+            div.widget1
+              img(data-echo= "images/livingroomnew.jpg",alt="")
+              div.promo_content
+                a(href='#')
+                  span
+                    | Living Room
+              div.promo_address
+                | Explore Exclusive Collection
+          div.row5
+            div.widget2
+              img(data-echo= "images/bedroomnew.jpg",alt="")
+              div.promo_content
+                a(href='#')
+                  span
+                    | Bedroom
+              div.promo_address
+                | Explore Exclusive Collection
+            div.widget2
+              img(data-echo= "images/bathroomnew.jpg",alt="")
+              div.promo_content
+                a(href='#')
+                  span
+                    | Bathroom
+              div.promo_address
+                | Explore Exclusive Collection
+
+
+        div.row3
+          div.widget3
+            img(data-echo= "images/outdoornew.jpg",alt="")
+            div.promo_content
+              a(href='#')
+                span
+                  | Outdoor
+            div.promo_address
+              | Explore Exclusive Collection
+
+          div.widget3
+            img(data-echo= "images/commercialnew.jpg",alt="")
+            div.promo_content
+              a(href='#')
+                span
+                  | Commercial
+            div.promo_address
+              | Explore Exclusive Collection
+
+    div.brand-container.wrapper
+      h3.box-header
+        | find by brand
+      div#brandSlider.swipe
+        div.brand-wrapper
+          div.slider-image
+            img(data-echo= "images/brand1.png",alt="")
+            img(data-echo= "images/brand2.png",alt="")
+            img(data-echo= "images/brand3.png",alt="")
+            img(data-echo= "images/brand4.png",alt="")
+          div.slider-image
+            img(data-echo= "images/brand5.png",alt="")
+            img(data-echo= "images/brand2.png",alt="")
+            img(data-echo= "images/brand1.png",alt="")
+            img(data-echo= "images/brand3.png",alt="")
+
+    div.box-area
+      div.wrapper
+        h3.box-header
+          | find by brand
+        div.brand_slider
+            ul.promo_brand
+              li
+                a(href='')
+                  img(data-echo= "images/brand1.png",alt="")
+              li
+                a(href='')
+                  img(data-echo= "images/brand2.png",alt="")
+              li
+                a(href='')
+                  img(data-echo= "images/brand3.png",alt="")
+              li
+                a(href='')
+                  img(data-echo= "images/brand4.png",alt="")
+              li
+                a(href='')
+                  img(data-echo= "images/brand6.png",alt="")
+
+    include footer.jade
+    script.
+        function addEvent(object, type, func) {
+            if (object.attachEvent) {
+                object['e'+type +func] = func;
+                object[type +func] = function() {
+                    object['e'+type + func](window.event);
+                }
+                object.attachEvent('on' + type, object[type + func]);
+            } else {
+                object.addEventListener(type, func, false);
+            }
+        }
+        addEvent(window,'load',function(event){
+        var element = document.createElement("script");
+        element.src = "javascripts/swipe.js";
+        document.body.appendChild(element);
+        });

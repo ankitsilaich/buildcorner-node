@@ -13,6 +13,7 @@ var rev = require('gulp-rev');
 var paths = {
   scripts: ['./assets/javascripts/**/*.coffee'],
   jsscripts: ['./assets/javascripts/**/*.js'],
+  htmls: ['./assets/templates/**/*.html'],
   images: 'client/img/**/*',
 };
 
@@ -26,7 +27,8 @@ gulp.task('coffee-watch', browserSync.reload);
 
 gulp.task('watch', function () {
 	gulp.watch(paths.scripts, ['coffee']);
-    gulp.watch(paths.jsscripts, ['js-move']);
+  gulp.watch(paths.jsscripts, ['js-move']);
+  gulp.watch(paths.htmls, ['html-move']);
 
 
 	browserSync.init({
@@ -38,8 +40,8 @@ gulp.task('watch', function () {
 
   // watch for changes in compiled files
 	gulp.watch(paths.scripts).on('change', browserSync.reload);
-    gulp.watch(paths.jsscripts).on('change', browserSync.reload);
-
+  gulp.watch(paths.jsscripts).on('change', browserSync.reload);
+  gulp.watch(paths.htmls).on('change', browserSync.reload);
 
 });
 //coffee compilation
@@ -52,6 +54,11 @@ gulp.task('js-move', function() {
   gulp.src('./assets/javascripts/**/*.js')
     // .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(gulp.dest('./public/javascripts/'));
+});
+gulp.task('html-move', function() {
+  gulp.src(paths.htmls)
+    // .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(gulp.dest('./public/templates/'));
 });
 //fonts copy
 gulp.task('copyfonts', function() {
@@ -121,7 +128,7 @@ gulp.task('prod', function() {
 // });
 
 gulp.task('dev', function() {
-  gulp.start('clean','js-move', 'coffee','copyfonts','sass','copyimages');
+  gulp.start('clean','js-move', 'html-move','coffee','copyfonts','sass','copyimages');
 });
 
 gulp.task('default', function() {

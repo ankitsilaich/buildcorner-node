@@ -219,8 +219,8 @@ html
       div.wrapper
         h3.box-header
           | find tile By usages
-        div.row
-          div.widget1
+        div.usages-container
+          div.widget.widget1
             img(data-echo= "images/floortile.jpg",alt="")
             div.promo_content
               a(href='#')
@@ -229,7 +229,7 @@ html
             div.promo_address
               | Explore Exclusive Collection
 
-          div.widget2
+          div.widget.widget2
             img(data-echo= "images/walltile.jpg",alt="")
             div.promo_content
               a(href='#')
@@ -243,16 +243,17 @@ html
         h3.box-header
           | roomwise products
         div.row1
-          div.widget1
-            img(data-echo= "images/kitchennew.jpg",alt="")
-            div.promo_content
-              a(href='#')
-                span
-                  | Kitchen
-            div.promo_address
-              | Explore Exclusive Collection
-          div.row2
-            div.widget1
+          div.left-box
+            div.widget.kitchen
+              img(data-echo= "images/kitchennew.jpg",alt="")
+              div.promo_content
+                a(href='#')
+                  span
+                    | Kitchen
+              div.promo_address
+                | Explore Exclusive Collection
+          div.right-box
+            div.widget.livingroom
               img(data-echo= "images/livingroomnew.jpg",alt="")
               div.promo_content
                 a(href='#')
@@ -260,8 +261,8 @@ html
                     | Living Room
               div.promo_address
                 | Explore Exclusive Collection
-          div.row5
-            div.widget2
+
+            div.widget.bedroom
               img(data-echo= "images/bedroomnew.jpg",alt="")
               div.promo_content
                 a(href='#')
@@ -269,7 +270,7 @@ html
                     | Bedroom
               div.promo_address
                 | Explore Exclusive Collection
-            div.widget2
+            div.widget.bathroom
               img(data-echo= "images/bathroomnew.jpg",alt="")
               div.promo_content
                 a(href='#')
@@ -278,9 +279,8 @@ html
               div.promo_address
                 | Explore Exclusive Collection
 
-
-        div.row3
-          div.widget3
+        div.row2
+          div.widget.outdoor
             img(data-echo= "images/outdoornew.jpg",alt="")
             div.promo_content
               a(href='#')
@@ -289,7 +289,7 @@ html
             div.promo_address
               | Explore Exclusive Collection
 
-          div.widget3
+          div.widget.commercial
             img(data-echo= "images/commercialnew.jpg",alt="")
             div.promo_content
               a(href='#')
@@ -297,17 +297,7 @@ html
                   | Commercial
             div.promo_address
               | Explore Exclusive Collection
-    div.brand-container
-        div#brandSlider.swipe
-            div.brand-wrapper
-                div.slider-image
-                    img(src= "images/livingroom2.jpg",alt="living room1")
-                div.slider-image
-                    img(data-echo= "images/Living-Room.jpg",alt="living room2")
-                div.slider-image
-                    img(src= "images/livingroom2.jpg",alt="living room1")
-                div.slider-image
-                    img(data-echo= "images/Living-Room.jpg",alt="living room2")
+
     div.box-area
       div.wrapper
         h3.box-header

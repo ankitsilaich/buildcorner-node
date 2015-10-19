@@ -16,10 +16,10 @@ echo.init({
       console.log(element, 'has been', op + 'ed')
     }
   });
-  
+
 var elem = document.getElementById('brandSlider');
 window.slider2 = Swipe(elem, {
-    startSlide: 0,
+    startSlide: 3,
     auto: 5000,
     continuous: true
 });

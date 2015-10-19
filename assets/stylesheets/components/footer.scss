@@ -10,10 +10,11 @@
     }
 }
 .footer-header {
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 700;
     padding-bottom: 20px;
     color: #eee;
+    width: 85%;
     text-transform: uppercase;
     border-bottom: 1px solid #4e5054;
 }
@@ -26,7 +27,7 @@
         a {
             color: #aaa;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 14px;
             &:hover {
                 color: #abc8e2;
             }
@@ -35,7 +36,7 @@
     .address-line {
         padding: 7px 0;
         color: #aaa;
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 .copyright {
