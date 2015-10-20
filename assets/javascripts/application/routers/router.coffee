@@ -6,9 +6,9 @@ define ['backbone'] , (Backbone) ->
       'about' : 'about'
       'login' : 'login'
     initialize : () ->
-      require ['views/header'], (View) ->
-        new View
-
+      require ['views/header','views/leftsidebar'], (headerView,sidebarView) ->
+        new headerView
+        new sidebarView
     index : () ->
       console.log('index page initialized');
       require ['views/index'], (View) ->
@@ -20,5 +20,6 @@ define ['backbone'] , (Backbone) ->
     login : () ->
       require ['views/login'], (View) ->
         new View
+
 
   Router

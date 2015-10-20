@@ -1,9 +1,21 @@
-define ['backbone','jquery','handlebars'] , (Backbone,$,Handlebars) ->
-  View =  Backbone.View.extend  ->
+define ['backbone','jquery'] , (Backbone,$) ->
+  View =   Backbone.View.extend (
     el : 'body',
-    initialize: ()->
+    initialize:  ->
      this.render()
-    render: ()->
-     $(this.el).html("<p class='customizebutton'>we have to test this page</p>");
-     console.log('index from server');
+     this.loadCss('../../stylesheets/base/reset.css')
+     this.loadCss('../../stylesheets/base/font-awesome.css')
+    render: ->
+    events:
+      'click #toggleDefaultNav': 'toggleLeftSideBar'
+
+    toggleLeftSideBar : (e) ->
+      console.log "hide small bar"
+      e.preventDefault();
+      $('.sidebar-left').toggleClass('sidebar-collapsed')
+      $('.logo').toggleClass('logo-collapsed')
+      $('.header-section').toggleClass('header-collapsed')
+    loadCss : (url) ->
+      $("head").append("<link  href='"+ url+ "' type='text/css' rel='stylesheet' />");
+  )
   View

@@ -14,6 +14,7 @@ var paths = {
   scripts: ['./assets/javascripts/**/*.coffee'],
   jsscripts: ['./assets/javascripts/**/*.js'],
   htmls: ['./assets/templates/**/*.html'],
+
   images: 'client/img/**/*',
 };
 
@@ -50,14 +51,17 @@ gulp.task('coffee', function() {
     .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(gulp.dest('./public/javascripts/'));
 });
+// gulp.task('jade', function() {
+//   gulp.src(paths.jades)
+//     .pipe(gulp.dest('./public/templates/'));
+// });
+
 gulp.task('js-move', function() {
   gulp.src('./assets/javascripts/**/*.js')
-    // .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(gulp.dest('./public/javascripts/'));
 });
 gulp.task('html-move', function() {
   gulp.src(paths.htmls)
-    // .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(gulp.dest('./public/templates/'));
 });
 //fonts copy
@@ -128,7 +132,7 @@ gulp.task('prod', function() {
 // });
 
 gulp.task('dev', function() {
-  gulp.start('clean','js-move', 'html-move','coffee','copyfonts','sass','copyimages');
+  gulp.start('clean','js-move', 'html-move','coffee', 'copyfonts','sass','copyimages');
 });
 
 gulp.task('default', function() {
