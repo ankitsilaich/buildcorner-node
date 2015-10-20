@@ -8,11 +8,13 @@ var minifyCss = require('gulp-minify-css');
 var del = require('del');
 var sass = require('gulp-sass');
 var rev = require('gulp-rev');
-var webp = require('gulp-webp');
+// var webp = require('gulp-webp');
 
 var paths = {
   scripts: ['./assets/javascripts/**/*.coffee'],
   jsscripts: ['./assets/javascripts/**/*.js'],
+  htmls: ['./assets/templates/**/*.html'],
+
   images: 'client/img/**/*',
 };
 
@@ -26,7 +28,8 @@ gulp.task('coffee-watch', browserSync.reload);
 
 gulp.task('watch', function () {
 	gulp.watch(paths.scripts, ['coffee']);
-    gulp.watch(paths.jsscripts, ['js-move']);
+  gulp.watch(paths.jsscripts, ['js-move']);
+  gulp.watch(paths.htmls, ['html-move']);
 
 
 	browserSync.init({
@@ -38,8 +41,8 @@ gulp.task('watch', function () {
 
   // watch for changes in compiled files
 	gulp.watch(paths.scripts).on('change', browserSync.reload);
-    gulp.watch(paths.jsscripts).on('change', browserSync.reload);
-
+  gulp.watch(paths.jsscripts).on('change', browserSync.reload);
+  gulp.watch(paths.htmls).on('change', browserSync.reload);
 
 });
 //coffee compilation
@@ -48,10 +51,18 @@ gulp.task('coffee', function() {
     .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(gulp.dest('./public/javascripts/'));
 });
+// gulp.task('jade', function() {
+//   gulp.src(paths.jades)
+//     .pipe(gulp.dest('./public/templates/'));
+// });
+
 gulp.task('js-move', function() {
   gulp.src('./assets/javascripts/**/*.js')
-    // .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(gulp.dest('./public/javascripts/'));
+});
+gulp.task('html-move', function() {
+  gulp.src(paths.htmls)
+    .pipe(gulp.dest('./public/templates/'));
 });
 //fonts copy
 gulp.task('copyfonts', function() {
@@ -81,7 +92,7 @@ gulp.task('minify-css', function() {
     .pipe(gulp.dest('./public/stylesheets/'));
 });
 
-// this task will create hashes for each js file so to remove cache in browsers 
+// this task will create hashes for each js file so to remove cache in browsers
 gulp.task('hash-js', function () {
 	return gulp.src(['./public/javascripts/**/*.js'], {base: 'assets'})
         .pipe(gulp.dest('./public/javascripts/'))  // copy original assets to build dir
@@ -114,14 +125,14 @@ gulp.task('compress', function() {
 gulp.task('prod', function() {
   gulp.start( 'coffee','copyfonts','minify-css');
 });
-gulp.task('webp-conversion', function () {
-    return gulp.src('./assets/images/images 3/**/*.jpg')
-        .pipe(webp())
-        .pipe(gulp.dest('./temp'));
-});
+// gulp.task('webp-conversion', function () {
+//     return gulp.src('./assets/images/images 3/**/*.jpg')
+//         .pipe(webp())
+//         .pipe(gulp.dest('./temp'));
+// });
 
 gulp.task('dev', function() {
-  gulp.start('clean','js-move', 'coffee','copyfonts','sass','copyimages');
+  gulp.start('clean','js-move', 'html-move','coffee', 'copyfonts','sass','copyimages');
 });
 
 gulp.task('default', function() {

@@ -8,17 +8,26 @@ window.slider = Swipe(elem, {
     continuous: true
 });
 echo.init({
-    offset: 100,
+    offset: 500,
     throttle: 250,
     unload: false,
+    debounce : false,
     callback: function (element, op) {
       console.log(element, 'has been', op + 'ed')
     }
   });
+
+var elem = document.getElementById('brandSlider');
+window.slider2 = Swipe(elem, {
+    startSlide: 3,
+    auto: 5000,
+    continuous: true
+});
+
 })();
 addEvent(window, 'scroll', function(event) {
         var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-           shrinkOn = 170,
+           shrinkOn = 200,
             header = document.getElementById('main-nav');
        if (distanceY > shrinkOn) {
            return header.className = 'main-navigation makeitfix';
